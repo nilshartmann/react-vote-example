@@ -1,0 +1,4 @@
+{
+  "verbose": true,
+  "ignore": ["*.spec.js", "client/*", "node_modules/*", "app/test/fixtures/*"]
+}
