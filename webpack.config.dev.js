@@ -4,7 +4,7 @@ const mainJs = path.resolve(__dirname, 'src/client/main.js');
 const outputPath = path.resolve(__dirname, 'public/dist');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   entry:   [
     mainJs
   ],
