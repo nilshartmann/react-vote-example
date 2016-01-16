@@ -1,7 +1,6 @@
 import { fetchJson, sendJson } from '../backend/Backend'
 
-import { pushPath } from 'redux-simple-router'
-export { pushPath, replacePath } from 'redux-simple-router'
+import { routeActions } from 'redux-simple-router'
 
 export const SET_VOTES = 'SET_VOTES';
 export const SET_CURRENT_VOTE = 'SET_CURRENT_VOTE';
@@ -52,5 +51,13 @@ export function setTitle(title) {
 }
 
 export function routeToMain() {
-  return pushPath('/');
+  return routeActions.push('/');
+}
+
+export function pushPath(path) {
+    return routeActions.push(path);
+}
+
+export function replacePath(path) {
+    return routeActions.replace(path);
 }

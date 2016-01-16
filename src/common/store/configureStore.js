@@ -2,9 +2,15 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import reducer from '../reducers';
 import thunk from 'redux-thunk';
 
+import history from '../history';
+import { syncHistory } from 'redux-simple-router';
+
 export default function configureStore(initialState) {
+  const reduxRouterMiddleware = syncHistory(history);
   const store = compose(
-    applyMiddleware(thunk)
+    applyMiddleware(
+      thunk,
+      reduxRouterMiddleware)
   )(createStore)(reducer, initialState);
 
   if (module.hot) {

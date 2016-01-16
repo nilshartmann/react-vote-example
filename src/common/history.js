@@ -1,7 +1,7 @@
 // https://github.com/rackt/react-router/blob/master/docs/advanced/NavigatingOutsideOfComponents.md
 
-import createHistory from 'history/lib/createBrowserHistory';
+import { createHistory, createMemoryHistory } from 'history'
 
-const history = typeof window !== 'undefined' ? createHistory() : undefined;
+const history = typeof window !== 'undefined' ? createHistory() : createMemoryHistory();
 
 export default history;
