@@ -2,6 +2,7 @@ import React from 'react';
 import { RoutingContext, match } from 'react-router';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
+import saferStringify from 'safer-stringify';
 import routes from '../common/routes';
 import configureStore from '../common/store/configureStore';
 
@@ -45,7 +46,7 @@ function renderFullPage(html, initialData) {
       <title>Votes as a Service</title>
       <link rel="stylesheet" href="/tetra.css">
 <script>
-  window.__INITIAL_STATE__ = ${JSON.stringify(initialData)};
+  window.__INITIAL_STATE__ = ${saferStringify(initialData)};
 </script>
   </head>
 
