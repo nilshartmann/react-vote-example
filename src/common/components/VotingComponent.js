@@ -22,7 +22,6 @@ export default class VotingComponent extends React.Component {
           {vote.choices.map((choice) =>
             <ChoiceBar key={choice.id}
                        onClickHandler={()=>onRegisterChoice(choice)}
-                       percent={choice.count * (100 / vote.totalVotes)}
               {...choice} />
           )}
         </div>
