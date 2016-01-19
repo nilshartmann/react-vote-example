@@ -48,7 +48,7 @@ npm run import-mongodb-data
 
 # Keep up-to-date
 
-We plan to enhance this example application in future. To make sure you don't miss anything you can watch this repository
+We plan to enhance this example application in the future. To make sure you don't miss anything you can watch this repository
  or follow us on twitter [@nilshartmann](https://twitter.com/nilshartmann) (Nils) and [@djcordhose](https://twitter.com/jdcordhose) (Olli)
 
 # Contribution
