@@ -3,10 +3,8 @@ import { Router } from 'react-router';
 import { Provider } from 'react-redux';
 import expect, {spyOn} from 'expect';
 import TestUtils from 'react-addons-test-utils';
-import createHistory from 'history/lib/createBrowserHistory';
 
 import * as Actions from '../src/common/actions';
-import configureStore from '../src/common/store/configureStore';
 import routes from '../src/common/routes';
 import history from '../src/common/history';
 import store from '../src/common/store/store';
