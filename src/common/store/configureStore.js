@@ -3,7 +3,7 @@ import reducer from '../reducers';
 import thunk from 'redux-thunk';
 
 import history from '../history';
-import { syncHistory } from 'redux-simple-router';
+import { syncHistory } from 'react-router-redux';
 
 export default function configureStore(initialState) {
   const reduxRouterMiddleware = syncHistory(history);

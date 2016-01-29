@@ -1,6 +1,6 @@
-import { fetchJson, sendJson } from '../backend/Backend'
+import { fetchJson, sendJson } from '../backend/Backend';
 
-import { routeActions } from 'redux-simple-router'
+import { routeActions } from 'react-router-redux';
 
 export const SET_VOTES = 'SET_VOTES';
 export const SET_CURRENT_VOTE = 'SET_CURRENT_VOTE';
