@@ -2,20 +2,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Router } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 
-import history from '../common/history';
 import store from '../common/store/store';
-
 import routes from '../common/routes';
-const router = <Router history={history}>
-  { routes }
-</Router>;
+import { syncHistoryWithStore } from 'react-router-redux';
+
+const history = syncHistoryWithStore(browserHistory, store);
 
 const mount = document.getElementById('voteAppMountPoint');
 const provider = <Provider store={store}>
-  {router}
+    <Router history={history}>
+        { routes }
+    </Router>
 </Provider>;
 
 ReactDOM.render(provider, mount);

@@ -1,13 +1,11 @@
 import expect from 'expect';
 import jsdom from 'mocha-jsdom';
 import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import ReactTestUtils from 'react-addons-test-utils';
 import VoteList from '../../src/common/components/VoteList';
 import VoteSummary from '../../src/common/components/VoteSummary';
 import votes from '../fixtures/convertedVotes';
-import createHistory from 'history/lib/createMemoryHistory';
-import {Link,Route, Router} from 'react-router'
+import {Route, Router, createMemoryHistory} from 'react-router'
 
 describe('VoteList', () => {
   jsdom();
@@ -24,7 +22,7 @@ describe('VoteList', () => {
       }
     });
 
-    const history = createHistory('/');
+    const history = createMemoryHistory('/');
     const tree = ReactTestUtils.renderIntoDocument(
       <Router history={history}>
         <Route path="/" component={Wrapper}/>

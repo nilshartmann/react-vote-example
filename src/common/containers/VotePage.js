@@ -19,7 +19,7 @@ class VotePage extends React.Component {
         <VoteList allVotes={votes}/>
         <VoteComposer
           active={false}
-          onActivate={ () => this.props.pushPath('/compose') }
+          onActivate={ () => this.props.push('/compose') }
         />
       </div>
     );
@@ -28,7 +28,7 @@ class VotePage extends React.Component {
 VotePage.propTypes = {
   votes: PropTypes.array.isRequired,
   setTitle: PropTypes.func.isRequired,
-  pushPath: PropTypes.func.isRequired,
+  push: PropTypes.func.isRequired,
   loadVotes: PropTypes.func.isRequired
 };
 

@@ -12,11 +12,12 @@ import NoMatchPage from './containers/NoMatchPage';
 // (does not matter much, as this compose is never rendered on server side)
 import store from './store/store';
 
-function requireAuth(nextState, replaceState) {
+function requireAuth(nextState, replace) {
   const state = store.getState();
   if (!state.login) {
     const redirect = nextState.location.pathname;
-    replaceState(null, `/login${redirect}`);
+    const pathname = `/login${redirect}`;
+    replace({pathname});
   }
 }
 

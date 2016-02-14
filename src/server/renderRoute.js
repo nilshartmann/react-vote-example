@@ -1,5 +1,5 @@
 import React from 'react';
-import { RoutingContext, match } from 'react-router';
+import { RouterContext, match } from 'react-router';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import saferStringify from 'safer-stringify';
@@ -20,7 +20,7 @@ export default function renderRoute(request, reply, store = configureStore()) {
       preRender(renderProps.components, renderProps, store).then(() => {
         const html = renderToString(
           <Provider store={store}>
-            <RoutingContext {...renderProps}/>
+            <RouterContext {...renderProps}/>
           </Provider>
         );
         const initialData = store.getState();

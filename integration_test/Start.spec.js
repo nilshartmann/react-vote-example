@@ -1,12 +1,12 @@
 import React from 'react';
-import { Router } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import expect, {spyOn} from 'expect';
 import TestUtils from 'react-addons-test-utils';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import * as Actions from '../src/common/actions';
 import routes from '../src/common/routes';
-import history from '../src/common/history';
 import store from '../src/common/store/store';
 
 import votes from '../test/fixtures/convertedVotes';
@@ -34,6 +34,8 @@ describe('Application', () => {
     });
 
     it('navigates to votes and loads data on startup', () => {
+        const history = syncHistoryWithStore(browserHistory, store);
+
         TestUtils.renderIntoDocument(
             <Provider store={store}>
                 <Router history={history}>
@@ -44,7 +46,7 @@ describe('Application', () => {
         fetchSpy.andReturn(createResponse(votes));
 
         store.dispatch(Actions.routeToMain());
-        expect(store.getState().routing.location.pathname).toEqual('/votes');
+        expect(store.getState().routing.locationBeforeTransitions.pathname).toEqual('/votes');
         expect(fetchSpy.calls.length).toBe(1);
         expect(fetchSpy.calls[0].arguments.length).toBe(1);
         expect(fetchSpy.calls[0].arguments[0]).toMatch(/api\/votes$/);

@@ -23,7 +23,7 @@ class LoginPage extends React.Component {
   redirect() {
     const destination = `/${this.props.params.redirect ? this.props.params.redirect : ''}`;
     // we do not want login in our history
-    this.props.replacePath(destination);
+    this.props.replace(destination);
   }
 
   onChange(event) {
@@ -63,7 +63,7 @@ LoginPage.propTypes = {
   setTitle: PropTypes.func.isRequired,
   routeToMain: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
-  replacePath: PropTypes.func.isRequired,
+  replace: PropTypes.func.isRequired,
   params: PropTypes.object.isRequired
 };
 
